@@ -5,8 +5,7 @@
   "homepage": "https://github.com/Kand1/vue2-friend-list-test-case/",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "deploy": "node ./node_modules/vue-gh-pages/index.js"
+    "build": "vue-cli-service build"
   },
   "dependencies": {
     "axios": "^0.26.1",
