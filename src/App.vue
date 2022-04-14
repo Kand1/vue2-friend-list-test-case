@@ -42,7 +42,7 @@ export default {
       }, {});
 
       if (!searchParams['access_token']) {
-        window.location.href = 'https://oauth.vk.com/authorize?client_id=8137408&display=page&redirect_uri=http://localhost:8080/&scope=friends,photos&response_type=token&v=5.81'
+        window.location.href = 'https://oauth.vk.com/authorize?client_id=8137408&display=page&redirect_uri=https://kand1.github.io/vue2-friend-list-test-case/&scope=friends,photos&response_type=token&v=5.81'
       } else {
         let access_token = searchParams['access_token']
         $.ajax({
