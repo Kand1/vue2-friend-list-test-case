@@ -1,0 +1,1 @@
+# vue2-friend-list-test-case
