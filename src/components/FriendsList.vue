@@ -5,12 +5,20 @@
         {{listName}}
       </div>
     </div>
-    <div class="list">
-      <FriendItem
-        v-for="friend in friendsList"
-        v-bind:friend="friend"
-
-      />
+    <div class="list"
+         @drop="onDrop($event, listId)"
+         @dragover.prevent
+         @dragenter.prevent
+    >
+      <div
+          v-for="friend in friendsList"
+          @dragstart="onDragStart($event, friend)"
+          draggable="true"
+      >
+        <FriendItem
+            v-bind:friend="friend"
+        />
+      </div>
     </div>
     <div class="footer">
       <button @click="buttonClick">
@@ -25,6 +33,7 @@ import FriendItem from "@/components/FriendItem";
 
 export default {
   props: {
+    listId: Number,
     listName: String,
     buttonName: String,
     friendsList: Array
@@ -40,6 +49,15 @@ export default {
       if (this.buttonName === "login in") {
         this.$emit('login')
       }
+    },
+    onDragStart(e, item) {
+      e.dataTransfer.dropEffect = 'move'
+      e.dataTransfer.effectAllowed = 'move'
+      e.dataTransfer.setData('itemId', item.id.toString())
+    },
+    onDrop(e, listId) {
+      const itemId = parseInt(e.dataTransfer.getData('itemId'))
+      this.$emit('drop', itemId, listId)
     }
   }
 }

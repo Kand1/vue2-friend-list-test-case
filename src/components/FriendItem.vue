@@ -3,10 +3,11 @@
   <a class="photo" :href="'https://vk.com/id' + friend.id">
     <img :src="friend.photo">
   </a>
-  <a class="name" :href="'https://vk.com/id' + friend.id">
-    <div>{{friend.name}}</div>
-  </a>
-
+  <div class="name">
+    <a :href="'https://vk.com/id' + friend.id">
+      {{friend.name}}
+    </a>
+  </div>
 </div>
 </template>
 
@@ -39,14 +40,13 @@ export default {
 .name {
   grid-area: n;
   display: flex;
+}
+
+.name a {
   color: #333;
   text-decoration: none;
   font-size: 1.1rem;
-}
-
-.name div {
   margin: auto 0;
-  align-text:left;
 }
 
 img {
